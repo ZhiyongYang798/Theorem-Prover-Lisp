@@ -1,0 +1,40 @@
+First, you have to load sunify.cl and prover.cl or sunify.lsp and prover.lsp.I'm using
+ AllergoCL,thus the suffix of my code is .cl.
+
+Then, you got to define the global variable in the command window.For example,
+
+CG-USER(120): (defvar *howling*   '((1 ((howl z)) ((hound z)))
+                    (2 nil ((have x y) (cat y) (have x z) (mouse z)))
+                    (3 nil ((ls w) (have w v) (howl v)))
+                    (4 ((have (john) (a))) nil)
+                    (5 ((cat (a)) (hound (a))) nil)
+                    (6 ((mouse (b))) nil)    
+                    (7 ((ls (john))) nil)
+                    (8 ((have (john) (b))) nil)))
+
+The theorem clause begins at clause 6. To run the two-pointer function.You have to 
+input the following into command window.
+
+CG-USER(122): (two-pointer *howling* 6)
+
+To run the unit-preference function. You the input the following in command window.
+
+CG-USER(123): (unit-preference *howling* 6)
+
+Now you have implemented the two methodes.
+
+To get the Answer(x), you got to input as follows.
+
+CG-USER(134): (defvar *HarmoniaAnswer* '((1 ((Grandparent x y)) ((Parent x z) (Parent z y)))
+               (2 ((Parent x y)) ((Mother x y))) (3 ((Parent x y)) ((Father x y))) (4 ((Father (Zeus) (Ares))) nil)
+               (5 ((Mother (Hera) (Ares))) nil) (6 ((Father (Ares) (Harmonia))) nil)
+               (7 ((Answer x)) ((Grandparent x (Harmonia))))))
+
+To get the result of two-pointer. Run:
+
+CG-USER(135): (two-pointer *HarmoniaAnswer* 7)
+
+To get the result of unit-preference. Run:
+
+CG-USER(136): (unit-preference *HarmoniaAnswer* 7) 
+ 
